@@ -1,6 +1,6 @@
 # Processing
 
-This repo contains all of the code for our Processing unit of Sound as Object 2021.
+This repo contains all of the code for the Processing unit of Sound as Object, Spring 2021.
 
 | Folder   | Description                                                                                                                                                                            |
 | :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
