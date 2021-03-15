@@ -8,19 +8,16 @@
 */
 
 import processing.serial.*; // import depedencies
-Serial arduinoPort;    // The serial port, named arduinoPort
-String inString;  // Input string from serial port
-int lf = 10;      // ASCII linefeed
-int pinsUsed;
+Serial arduinoPort;         // The serial port, named arduinoPort
+int lf = 10;                // ASCII control character for linefeed or \n
+int pinsUsed;               // Initializes when serial data is read. See serialEvent()
 
-// store the sensor values in an array
-int[] sensors;
+int[] sensors;              // to store the sensor values in an array
 
-// call the smoother and declare as many as you need
-Smoother sensorSmoother0;
+Smoother sensorSmoother0;   // call the smoother and declare as many as you need
 Smoother sensorSmoother1;
-// store smoothed values
-int sensorSmoothed0 = 0;
+
+int sensorSmoothed0 = 0;    // store smoothed values
 int sensorSmoothed1 = 0;
   
 void setup() { 
@@ -56,14 +53,14 @@ void draw() {
   }
 } 
 
-// serialEvent() is called when data is incoming
+// serialEvent is called when data is incoming
 // see: https://processing.org/reference/libraries/serial/serialEvent_.html
 void serialEvent(Serial arduinoPort) 
 { 
-  // read the serial buffer:
-  inString = arduinoPort.readStringUntil(lf);
+  // read a line of data
+  String inString = arduinoPort.readStringUntil(lf);
 
-  // remove the linefeed
+  // remove whitespace and linefeed
   inString = trim(inString);
   // split the string at the tabs and convert the sections into integers, scoped locally
   int initialReading[] = int(split(inString, '\t'));

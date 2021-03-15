@@ -7,17 +7,13 @@
 */
 
 import processing.serial.*; // import depedencies
-Serial arduinoPort;    // The serial port, named arduinoPort
-String inString;  // Input string from serial port
-int lf = 10;      // ASCII control character for linefeed
+Serial arduinoPort;         // The serial port, named arduinoPort
+int lf = 10;                // ASCII control character for linefeed or \n
 
-// store the sensor value
-int sensorValue = 0;
+int sensorValue = 0;        // to store the sensor value
 
-// call the smoother and declare as sensorSmoother
-Smoother sensorSmoother;
-// store the smoothed value
-int sensorSmoothed = 0;
+Smoother sensorSmoother;    // call the smoother and declare as sensorSmoother
+int sensorSmoothed = 0;     // to store the smoothed value
 
 void setup() { 
   size(1024,1024); 
@@ -40,11 +36,11 @@ void draw() {
   ellipse(width/2, height/2, sensorSmoothed, sensorSmoothed);
 } 
 
-// serialEvent() is called when data is incoming
+// serialEvent is called when data is incoming
 // see: https://processing.org/reference/libraries/serial/serialEvent_.html
 void serialEvent(Serial arduinoPort) { 
-  // read the serial data
-  inString = arduinoPort.readString(); 
+  // read a line of data
+  String inString = arduinoPort.readString(); 
   // remove whitespace and linefeed
   inString = trim(inString);
   // cast as integer and assign to sensorValue so we can use it in draw()
