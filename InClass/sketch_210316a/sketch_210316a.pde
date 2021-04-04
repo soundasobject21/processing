@@ -29,20 +29,22 @@ void draw() {
   // sensors[0] knob
   // sensors[1] sensor
   // sensors[2] button
-  int knobSmoothed = knobSmoother.average(sensors[0]);
-  int sensorSmoothed = sensorSmoother.average(sensors[1]);
+  if (pinsUsed == 3) {
+    int knobSmoothed = knobSmoother.average(sensors[0]);
+    int sensorSmoothed = sensorSmoother.average(sensors[1]);
+    
+    float colorValue = map(knobSmoothed, 0, 1023, 0, 255);
+    
+    if (sensors[2] == 0) {
+      background(0);
+      fill(colorValue);
+    } else {
+      background(255);
+      fill(255 - colorValue);
+    }
   
-  float colorValue = map(knobSmoothed, 0, 1023, 0, 255);
-  
-  if (sensors[2] == 0) {
-    background(0);
-    fill(colorValue);
-  } else {
-    background(255);
-    fill(255 - colorValue);
+    rect(width/2, height/2, knobSmoothed, sensorSmoothed);
   }
-
-  rect(width/2, height/2, knobSmoothed, sensorSmoothed);
 }
 
 void serialEvent(Serial arduinoPort) {
