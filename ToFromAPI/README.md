@@ -17,11 +17,11 @@ As-is, the patch won't work well if you want to use an Arduino and Processing in
 
 ## Getting Started
 
-1. In Processing, add the "Simple Http Server" library to your Processing libraries.
+1. In Processing, add the "HTTP Requests for Processing" library to your Processing libraries.
 
    ```
    Menu > Sketch > Import Library > Add Library...
-   Search for and install "Simple Http Server"
+   Search for and install "HTTP Requests for Processing"
    ```
 
 2. Make sure you have downloaded the entire `template` folder in this repo and open `template.pde`.
