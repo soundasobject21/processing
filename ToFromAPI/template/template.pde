@@ -5,7 +5,7 @@ import http.requests.*;
 String api_local = "http://localhost:3000";
 
 // URL of the other person's api
-String api_host = "https://example-123.loca.lt";
+String api_host = "https://stephanie-sao2021.serverless.social";
 
 // request frequency
 Timer interval = new Timer(200);
@@ -30,7 +30,7 @@ void draw() {
     thread("sendData");
     
     // request the other person's data asynchronously in a thread.
-    thread("retrieveData");
+    // thread("retrieveData");
     
     interval.start();
   }

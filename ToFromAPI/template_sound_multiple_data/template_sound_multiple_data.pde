@@ -49,7 +49,7 @@ void draw() {
     thread("sendOtherData");
     
     // request the other person's data asynchronously in a thread.
-    // thread("retrieveData");
+    thread("retrieveData");
     
     interval.start();
   }
